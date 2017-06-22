@@ -1,0 +1,14 @@
+<%= simple_form_for @category do |f| %>
+    <%= f.input :name %>
+    
+    <h3>Alt Kategoriler</h3>
+    <div id='subcategories'>
+      <%= f.simple_fields_for :subcategories do |subcategory| %>
+        <%= render 'subcategory_fields', :f => subcategory %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'Alt Kategori Ekle', f, :subcategories %>
+      </div>
+    </div>
+    <%= f.button :submit %>
+<% end %>

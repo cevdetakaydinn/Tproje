@@ -1,0 +1,2 @@
+module ExtraSpecsHelper
+end

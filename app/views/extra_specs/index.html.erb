@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Extra Specs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Speciality</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @extra_specs.each do |extra_spec| %>
+      <tr>
+        <td><%= extra_spec.speciality %></td>
+        <td><%= link_to 'Show', extra_spec %></td>
+        <td><%= link_to 'Edit', edit_extra_spec_path(extra_spec) %></td>
+        <td><%= link_to 'Destroy', extra_spec, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Extra Spec', new_extra_spec_path %>
