@@ -1,22 +1,7 @@
-<%= form_for(subcategory) do |f| %>
-  <% if subcategory.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(subcategory.errors.count, "error") %> prohibited this subcategory from being saved:</h2>
+<%= simple_form_for @subcategory do |f| %>
 
-      <ul>
-      <% subcategory.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= f.input :name %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <%= f.button :submit %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

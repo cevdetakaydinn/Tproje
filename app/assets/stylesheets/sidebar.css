@@ -153,3 +153,8 @@ body {
   color:white;
   text-align: center;
 }
+#content {
+  margin-top: 2%;
+  margin-left: 20%;
+  margin-right: 3%;
+}

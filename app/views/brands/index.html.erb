@@ -1,0 +1,31 @@
+
+<%=render "admin/sidebar"%>
+<div id="content">
+<p id="notice"><%= notice %></p>
+
+<h1>Markalar</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Marka İsmi</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brands.each do |brand| %>
+      <tr>
+        <td><%= brand.name %></td>
+        <td><%= link_to 'Göster', brand, class:"btn btn-info" %></td>
+        <td><%= link_to 'Düzenle', edit_brand_path(brand), class:"btn btn-warning" %></td>
+        <td><%= link_to 'Sil', brand, method: :delete, data: { confirm: 'Eminmisiniz?' } , class:"btn btn-danger"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Yeni Marka', new_brand_path, class:"btn btn-success"%>
+</div>

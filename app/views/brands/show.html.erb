@@ -1,0 +1,12 @@
+<%=render "admin/sidebar"%>
+<div id="content">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @brand.name %>
+</p>
+
+<%= link_to 'Edit', edit_brand_path(@brand) %> |
+<%= link_to 'Back', brands_path %>
+</div>

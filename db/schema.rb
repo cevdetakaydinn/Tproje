@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621151351) do
+ActiveRecord::Schema.define(version: 20170624102235) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -33,11 +39,18 @@ ActiveRecord::Schema.define(version: 20170621151351) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.integer  "price"
-    t.string   "brand"
     t.string   "icon"
     t.string   "extra"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "subcategory_id"
+    t.integer  "brand_id"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
   end
 
   create_table "subcategories", force: :cascade do |t|
