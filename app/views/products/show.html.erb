@@ -25,8 +25,14 @@
 </p>
 
 <p>
-  <strong>Marka Resim:</strong>
+  <strong>Kapak Resmi:</strong>
   <%= image_tag @product.icon.url %>
+</p>
+<p>
+  <strong>Resimler:</strong>
+  <% @product.pictures.each do |pic|%>
+    <%= image_tag pic.image.url %>
+  <%end%>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
