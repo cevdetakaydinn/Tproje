@@ -1,9 +1,11 @@
 <%=render "admin/sidebar"%>
-<div id="content">
-<h1>Editing Product</h1>
+<div id="page-content-wrapper">
+<h1>Ürünü Düzenle</h1>
 
 <%= render 'form', product: @product %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Göster', @product %> |
+<%= link_to 'Geri', products_path %>
 </div>
+</br>
+</br>

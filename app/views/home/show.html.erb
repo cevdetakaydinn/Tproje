@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Urunler</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+
+                <div class="panel-group" id="accordion">
+                  <%Category.all.each do |cat|%>
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="">
+                              </span><%=cat.name%></a>
+                          </h4>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                          <div class="panel-body">
+                              <table class="table">
+                                <%cat.subcategories.each do |sub|%>
+                                  <tr>
+                                      <td>
+                                          <span class=""></span><a href=""><%=sub.name%></a>
+                                      </td>
+                                  </tr>
+                                  <%end%>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+                  <%end%>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="">
+                                </span>Markalar</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                  <%Brand.all.each do |br|%>
+                                    <tr>
+                                        <td>
+                                            <a href=""><%=br.name%></a>
+                                        </td>
+                                    </tr>
+                                    <%end%>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9 col-md-9">
+              <div id="blog" class="content-block content-block-gray">
+                  <div class="container">
+                      <section class="block-body">
+                          <div class="row">
+                              <%Product.order(:created_at).limit(5).each do |por|%>
+                                <div class="col-sm-4 blog-post">
+                                    <%=image_tag por.icon.url%>
+                                    <a href="#"><h2><%=por.name%></h2></a>
+                                    <div class="date"><%=por.created_at.to_date%></div>
+                                </div>
+                              <%end%>
+                          </div>
+                      </section>
+                  </div><!--/container-->
+              </div><!-- /.content-block content-blog-gray -->
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>

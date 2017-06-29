@@ -1,4 +1,5 @@
-<div class='nested-fields'>
-    <%= f.input :image, as: :file %>
-    <%= link_to_remove_association "Resmi Sil", f %>
+<div class='nested-fields' style="border-style: double;">
+    <%= f.input :image, as: :file,label:"Resim"%>
+    <%= f.input :url,label:"Tür" %>
+    <%= link_to_remove_association "Resmi Sil", f, class:"btn btn-danger" %>
 </div>

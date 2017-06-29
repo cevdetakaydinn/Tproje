@@ -1,40 +1,71 @@
 <%=render "admin/sidebar"%>
-<div id="content">
+<div id="page-content-wrapper">
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-3">
+    <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Urun Adı:</b></td>
+        <td><%= @product.name %></td>
+      </tr>
+      <tr>
+        <td><b>Urun Kategori:</b></td>
+        <td><%= @product.subcategory.category.name %></td>
+      </tr>
+      <tr>
+        <td><b>Urun Alt Kategori:</b></td>
+        <td><%= @product.subcategory.name %></td>
+      </tr>
+      <tr>
+        <td><b>Urun Marka:</b></td>
+        <td><%= @product.brand.name %></td>
+      </tr>
+      <tr>
+        <td><b>Urun Fiyat:</b></td>
+        <td><%= @product.price %></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="col-xs-9">
+    <p>
+      <div class="card" style="width: 45rem">
+        <%= image_tag @product.icon.url ,class:"card-img-top"%>
+        <div class="card-block">
+          <h4 class="card-title">Kapak Resmi</h4>
+        </div>
+      </div>
+    </p>
+  </div>
+</div>
+
+
 
 <p>
-  <strong>Urun Adı:</strong>
-  <%= @product.name %>
-</p>
-<p>
-  <strong>Urun Alt Kategori:</strong>
-  <%= @product.subcategory.name %>
-</p>
-<p>
-  <strong>Urun Kategori:</strong>
-  <%= @product.subcategory.category.name %>
-</p>
-<p>
-  <strong>Urun Fiyatı:</strong>
-  <%= @product.price %>
-</p>
+<strong>Diğer Resimler:</strong>
 
-<p>
-  <strong>Marka:</strong>
-  <%= @product.brand.name %>
-</p>
-
-<p>
-  <strong>Kapak Resmi:</strong>
-  <%= image_tag @product.icon.url %>
-</p>
-<p>
-  <strong>Resimler:</strong>
+<div class="row">
   <% @product.pictures.each do |pic|%>
-    <%= image_tag pic.image.url %>
-  <%end%>
+    <span class="col-xs-3">
+    <div class="card" style="width: 25rem;">
+      <%= image_tag pic.image.url ,class:"card-img-top"%>
+      <div class="card-block">
+        <h4 class="card-title">Tip <%= pic.url%></h4>
+        <p class="card-text"></p>
+      </div>
+    </div>
+  </span>
+   <%end%>
+ </div>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Düzenle', edit_product_path(@product) ,class:"btn btn-warning"%> |
+<%= link_to 'Geri', products_path ,class:"btn btn-info"%>
 </div>

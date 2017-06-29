@@ -1,38 +1,46 @@
 <%=render "admin/sidebar"%>
-<div id="content">
-<p id="notice"><%= notice %></p>
+<div id="page-content-wrapper">
+  <p id="notice"><%= notice %></p>
 
-<h1>Ürünler</h1>
+  <h1>Ürünler</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Ürün Ad</th>
-      <th>Ürün Fiyat</th>
-      <th>Ürün Marka</th>
-      <th>Ürün Resim</th>
-      <th>Ürün Alt Kategori</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.brand.name %></td>
-        <td><%= product.icon %></td>
-        <td><%= product.subcategory.name %></td>
-        <td><%= link_to 'Show', product, class:"btn btn-info" %></td>
-        <td><%= link_to 'Edit', edit_product_path(product), class:"btn btn-warning" %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger"%></td>
+        <th>Ürün Resim</th>
+        <th>Ürün Ad</th>
+        <th>Ürün Marka</th>
+        <th>Ürün Alt Kategori</th>
+        <th>Ürün Fiyat</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>
+            <div class="col-xs-9">
+              <p>
+                <div class="card" style="width: 15rem;margin-top:-35px">
+                  <%= image_tag product.icon.url(:thumb) ,class:"card-img-top"%>
+                </div>
+              </p>
+            </div>
+          </td>
+          <td><%= product.name %></td>
+          <td><%= product.brand.name %></td>
+          <td><%= product.subcategory.name %></td>
+          <td><%= product.price %></td>
+          <td><%= link_to 'Show', product, class:"btn btn-info" %></td>
+          <td><%= link_to 'Edit', edit_product_path(product), class:"btn btn-warning" %></td>
+          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'Yeni Ürün Ekle', new_product_path, class:"btn btn-success" %>
+  <br>
+
+  <%= link_to 'Yeni Ürün Ekle', new_product_path, class:"btn btn-success" %>
 </div>

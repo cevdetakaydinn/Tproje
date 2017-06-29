@@ -8,88 +8,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Half Slider - Start Bootstrap Template</title>
-
 </head>
 
 <body>
+</br>
 
-    <!-- Navigation -->
-    
+    <div id="carousel-header" class="carousel slide" data-ride="carousel" data-interval="8000">
 
-    <!-- Half Page Image Background Carousel Header -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
+        <!-- Wrapper for slides -->
         <div class="carousel-inner">
+
             <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
+                <%=image_tag Picture.first.image.url(:medium)%>
             </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
+            <%Picture.all.each do |pic|%>
+              <div class="item">
+                  <%=image_tag pic.image.url(:medium)%>
+              </div>
+            <%end%>
+
         </div>
 
         <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
+        <a class="left carousel-control" href="#carousel-header" role="button" data-slide="next">
+            <%=image_tag("left.png")%>
         </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
+        <a class="right carousel-control" href="#carousel-header" role="button" data-slide="next">
+            <%=image_tag("right.png")%>
         </a>
-
-    </header>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Buraya Açıklama Başlığı Yazılacak</h1>
-                <p>Burada Açıklama Yazılacak</p>
-            </div>
-        </div>
-
-        <hr>
-        
-
     </div>
-    <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <div id="about" class="content-block content-block-cyan">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h1>Özge Tekstil</h1>
+                            <p>
+                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
+            <div id="projects" class="recent-projects">
+                <div class="recent-projects-title">
+                    İNDİRİMLER
+                </div>
+
+                <div class="recent-projects-content content-block-gray">
+                    <div id="owl-example" class="owl-carousel">
+                      <%Product.all.limit(6).each do |pro|%>
+                        <div>
+                            <%=image_tag pro.icon.url%>
+                            <a href="#"><%=pro.name%></a>
+
+                        </div>
+                      <%end%>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="blog" class="content-block content-block-gray">
+                <div class="container">
+                    <header class="block-heading cleafix">
+                        <a href="#" class="btn btn-o btn-lg pull-right">View All</a>
+                        <h1>Öne Çıkanlar</h1>
+                        <p>En son eklenen ürünler.</p>
+                    </header>
+                    <div class="block-body">
+                        <div class="row">
+                            <%Product.order(:created_at).limit(5).each do |por|%>
+                              <div class="col-sm-4 blog-post">
+                                  <%=image_tag por.icon.url%>
+                                  <a href="#"><h2><%=por.name%></h2></a>
+                                  <div class="date"><%=por.created_at.to_date%></div>
+                              </div>
+                            <%end%>
+
+                        </div>
+                    </div>
+                </div><!--/container-->
+            </div><!-- /.content-block content-blog-gray -->
+
+
+            <div id="social" class="content-block">
+                <div class="container text-center">
+                    <div class="hexagon"><a href="#"><i class="fa fa-facebook"></i></a></div>
+                    <div class="hexagon"><a href="#"><i class="fa fa-twitter"></i></a></div>
+                    <div class="hexagon"><a href="#"><i class="fa fa-google-plus"></i></a></div>
+                    <div class="hexagon"><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    <div class="hexagon"><a href="#"><i class="fa fa-pinterest"></i></a></div>
+                    <div class="hexagon"><a href="#"><i class="fa fa-envelope"></i></a></div>
+                </div>
+            </div>
+
+
+
 
 </body>
 
