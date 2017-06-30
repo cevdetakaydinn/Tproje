@@ -5,7 +5,9 @@
     <title>Urunler</title>
   </head>
   <body>
-    <div class="container">
+    <br>
+    <br>
+    <div class="">
         <div class="row">
             <div class="col-sm-3 col-md-3">
 
@@ -14,17 +16,20 @@
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <h4 class="panel-title">
-                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<%=cat.id%>"><span class="">
                               </span><%=cat.name%></a>
                           </h4>
                       </div>
-                      <div id="collapseOne" class="panel-collapse collapse in">
+                      <div id="collapseOne<%=cat.id%>" class="panel-collapse collapse in">
                           <div class="panel-body">
                               <table class="table">
                                 <%cat.subcategories.each do |sub|%>
                                   <tr>
                                       <td>
-                                          <span class=""></span><a href=""><%=sub.name%></a>
+                                        <%= form_tag show_path, method: 'get' do %>
+                                          <%= hidden_field_tag("subcategory_id", sub.id) %>
+                                          <%= submit_tag sub.name, class: "fake-button" %>
+                                        <%end%>
                                       </td>
                                   </tr>
                                   <%end%>
@@ -58,21 +63,22 @@
                 </div>
             </div>
 
-            <div class="col-sm-9 col-md-9">
+            <div class="col-sm-8 col-md-8">
               <div id="blog" class="content-block content-block-gray">
                   <div class="container">
                       <section class="block-body">
                           <div class="row">
                               <%Product.order(:created_at).limit(5).each do |por|%>
-                                <div class="col-sm-4 blog-post">
-                                    <%=image_tag por.icon.url%>
-                                    <a href="#"><h2><%=por.name%></h2></a>
+                                <div class="col-sm-5 blog-post">
+                                    <%=image_tag por.icon.url, style: 'height:275px;width:380px;'%>
+                                    <a href="#"><h3><%=por.name%></h3></a>
                                     <div class="date"><%=por.created_at.to_date%></div>
                                 </div>
                               <%end%>
                           </div>
                       </section>
                   </div><!--/container-->
+
               </div><!-- /.content-block content-blog-gray -->
             </div>
         </div>

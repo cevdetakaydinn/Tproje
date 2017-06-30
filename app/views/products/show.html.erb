@@ -31,6 +31,14 @@
         <td><b>Urun Fiyat:</b></td>
         <td><%= @product.price %></td>
       </tr>
+      <tr>
+        <td><b>Urun İndirim:</b></td>
+        <td>
+          <%if @product.discount.blank?%>
+          <%else%>
+          <%= @product.discount.amount %>
+          <%end%></td>
+      </tr>
     </tbody>
   </table>
   </div>

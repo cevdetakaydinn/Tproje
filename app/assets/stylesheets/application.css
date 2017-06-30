@@ -14,3 +14,14 @@
  *= require_self
  *= require font-awesome
  */
+ .fake-button {
+   padding: 0;
+   border: none;
+   background-color: white;
+   display: inline;
+ }
+ .fake-button:hover {
+    background-color: #f2f2f2;
+    font-size: 150%;
+    border-radius: 25px;
+}

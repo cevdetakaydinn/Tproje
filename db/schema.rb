@@ -56,11 +56,13 @@ ActiveRecord::Schema.define(version: 20170629122200) do
     t.datetime "updated_at",        null: false
     t.integer  "subcategory_id"
     t.integer  "brand_id"
+    t.integer  "discount_id"
     t.string   "icon_file_name"
     t.string   "icon_content_type"
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
     t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["discount_id"], name: "index_products_on_discount_id"
     t.index ["subcategory_id"], name: "index_products_on_subcategory_id"
   end
 

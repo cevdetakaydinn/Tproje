@@ -11,6 +11,10 @@
       <b>Marka</b>
       </br>
       <%= f.select :brand_id, Brand.all.map { |l| [l.name, l.id, { class: l.id }] }, include_blank: true%>
+      </br>
+      <b>İndirim</b>
+      </br>
+      <%= f.select :discount_id, Discount.all.map { |l| [l.amount, l.id, { class: l.id }] }, include_blank: true%>
       <%= f.input :price,label:"Fiyat" %>
       <%= f.input :icon, as: :file ,label:"Kapak Resmi"%>
     </div>
@@ -30,5 +34,5 @@
 </div>
 
 
-    <%= f.button :submit ,"Urunu Düzenle",class:"btn btn-warning"%>
+    <%= f.button :submit ,"Urunu Düzenle/aydet",class:"btn btn-warning"%>
 <% end %>

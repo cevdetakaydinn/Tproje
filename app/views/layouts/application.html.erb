@@ -21,6 +21,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                           <li><%= link_to 'Ürünler', show_path  %></li>
+                          <li><%= link_to 'İletişim', contact_path  %></li>
                         <%if user_signed_in?%>
                           <li><%= link_to 'Yönetici Panel', admin_index_path  %></li>
                           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>

@@ -59,11 +59,11 @@
 
                 <div class="recent-projects-content content-block-gray">
                     <div id="owl-example" class="owl-carousel">
-                      <%Product.all.limit(6).each do |pro|%>
-                        <div>
-                            <%=image_tag pro.icon.url%>
-                            <a href="#"><%=pro.name%></a>
 
+                      <%Product.where(discount_id: Discount.where.not(amount: nil)).limit(6).each do |pro|%>
+                        <div>
+                            <%=image_tag pro.icon.url, style: 'height:275px;width:%100;'%>
+                            <%=link_to pro.name+" İndirim= "+pro.discount.amount,product_path(pro)%>
                         </div>
                       <%end%>
 
@@ -76,7 +76,6 @@
             <div id="blog" class="content-block content-block-gray">
                 <div class="container">
                     <header class="block-heading cleafix">
-                        <a href="#" class="btn btn-o btn-lg pull-right">View All</a>
                         <h1>Öne Çıkanlar</h1>
                         <p>En son eklenen ürünler.</p>
                     </header>
@@ -84,7 +83,7 @@
                         <div class="row">
                             <%Product.order(:created_at).limit(5).each do |por|%>
                               <div class="col-sm-4 blog-post">
-                                  <%=image_tag por.icon.url%>
+                                  <%=image_tag por.icon.url, style: 'height:275px;width:%100;'%>
                                   <a href="#"><h2><%=por.name%></h2></a>
                                   <div class="date"><%=por.created_at.to_date%></div>
                               </div>
