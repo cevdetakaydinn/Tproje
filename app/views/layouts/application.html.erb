@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <div class="example3">
   <div id="top" class="navbar navbar-dark navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -16,7 +17,9 @@
                         <span class="sr-only">Toggle navigation</span>
                         <i class="fa fa-bars fa-2x"></i>
                     </button>
-                    <%= link_to 'ÖZGE TEKSTİL', root_path ,class:"navbar-brand" %>
+                    <%= link_to root_path ,class:"navbar-brand" do%>
+                        <%=image_tag("logo.png",height: '118',width: '443')%>
+                    <%end%>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -33,7 +36,7 @@
                 </div><!--/.navbar-collapse -->
             </div>
         </div>
-
+</div>
 <%= yield %>
 </br>
 </br>

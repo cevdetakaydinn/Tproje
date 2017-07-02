@@ -3,6 +3,13 @@ class HomeController < ApplicationController
 		@home_banner  = true
 	end
 	def show
+		@products = Product.all
+		if params[:sub]
+			@products = Product.where(subcategory_id: params[:sub])
+		elsif params[:brand]
+			@products = Product.where(brand_id: params[:brand])
+		end
+
 	end
 	def contact
 	end

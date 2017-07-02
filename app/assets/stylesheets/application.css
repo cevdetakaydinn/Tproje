@@ -14,14 +14,26 @@
  *= require_self
  *= require font-awesome
  */
- .fake-button {
-   padding: 0;
-   border: none;
-   background-color: white;
-   display: inline;
- }
- .fake-button:hover {
-    background-color: #f2f2f2;
-    font-size: 150%;
-    border-radius: 25px;
+
+.navbar.center .navbar-inner {
+    text-align: center;
+}
+.navbar.center .navbar-inner .nav {
+    float: none;
+    display:inline-block;
+}
+.example3 .navbar-brand {
+  height: 80px;
+}
+
+.example3 .nav >li >a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.example3 .navbar-toggle {
+  padding: 10px;
+  margin: 25px 15px 25px 0;
+}
+.navbar-brand{
+  padding:0px !important;
 }
