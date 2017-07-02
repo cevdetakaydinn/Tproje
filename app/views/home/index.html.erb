@@ -59,14 +59,14 @@
 
                 <div class="recent-projects-content content-block-gray">
                     <div id="owl-example" class="owl-carousel">
-
-                      <%Product.where(discount_id: Discount.where.not(amount: nil)).limit(6).each do |pro|%>
-                        <div>
-                            <%=image_tag pro.icon.url, style: 'height:275px;width:%100;'%>
-                            <%=link_to pro.name+" İndirim= "+pro.discount.amount,product_path(pro)%>
-                        </div>
+                      <%if !(@discounts.blank?)%>
+                        <%@discounts.each do |pro|%>
+                          <div>
+                              <%=image_tag pro.icon.url, style: 'height:275px;width:%100;'%>
+                              <%=link_to pro.name+" İndirim= "+pro.discount.amount, product_path(pro)%>
+                          </div>
+                        <%end%>
                       <%end%>
-
                     </div>
                 </div>
             </div>

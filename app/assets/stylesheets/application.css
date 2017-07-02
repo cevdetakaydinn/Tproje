@@ -37,3 +37,7 @@
 .navbar-brand{
   padding:0px !important;
 }
+.navbar-nav > li > a:focus{
+  background-color: #ec343c !important;
+  color: white !important;
+}

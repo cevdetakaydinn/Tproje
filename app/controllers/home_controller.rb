@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 	def index
 		@home_banner  = true
+		@discounts = Product.where(discount_id: Discount.where.not(amount: nil)).limit(6)
 	end
 	def show
 		@products = Product.all

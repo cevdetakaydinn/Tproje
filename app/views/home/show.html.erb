@@ -13,7 +13,7 @@
     <ul class="nav navbar-nav">
       <%Category.all.each do |cat|%>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=cat.name%>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=t(cat.name)%>
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <%cat.subcategories.each do |sub|%>
@@ -25,7 +25,7 @@
       <%end%>
 
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Markalar
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=t("Markalar")%>
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <%Brand.all.each do |br|%>

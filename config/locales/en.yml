@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "Hello world eng"
+  urunler: "Products"
+  iletişim: "Contact"
+  Yatak Örtüsü: "Bed Sheets"
+  Uyku Seti: "Sleep Sets"
+  Nevresim Takımları: "Linen Sets"
+  Markalar: "Brands"
