@@ -48,7 +48,9 @@
                 <%@products.each do |por|%>
                 <div class="col-sm-3 blog-post">
                   <%=image_tag por.icon.url, style: 'height:175px;width:280px;'%>
-                  <a href="#"><h3><%=por.name%></h3></a>
+                  <%=link_to item_path(product: por) do%>
+                   <h3><%=por.name%></h3>
+                  <%end%>
                   <div class="date"><%=por.created_at.to_date%></div>
                 </div>
                 <%end%>

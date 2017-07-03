@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     root to: "home#index"
     resources :admin
     get 'contact', to: "home#contact"
+    get 'item', to: "home#product"
     get 'show', to: "home#show"
   end
   root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root

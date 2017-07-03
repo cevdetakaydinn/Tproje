@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 		@home_banner  = true
 		@discounts = Product.where(discount_id: Discount.where.not(amount: nil)).limit(6)
 	end
+
 	def show
 		@products = Product.all
 		if params[:sub]
@@ -12,7 +13,11 @@ class HomeController < ApplicationController
 		end
 
 	end
+
 	def contact
 	end
 
+	def product
+		@product = Product.find(params[:product])
+	end
 end
