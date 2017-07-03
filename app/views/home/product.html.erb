@@ -2,33 +2,40 @@
   <div class="row">
     <div class="col-xs-8">
       <div class="row">
-        <div id="carousel-header" class="carousel slide" data-ride="carousel" data-interval="4000">
+
+          <div id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li class="item1 active"><%=image_tag @product.pictures.first.image.url(:medium), style: 'height:150px;;width:300px;'%></li>
+              <%count=2%>
+              <%@product.pictures.each do |pic|%>
+              <li class="item<%=count%>"><%=image_tag pic.image.url(:medium), style: 'height:150px;;width:300px;'%></li>
+              <%count=1+count%>
+              <%end%>
+            </ol>
 
             <!-- Wrapper for slides -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" role="listbox">
 
-                <div class="item active">
-                    <%=image_tag @product.pictures.first.image.url(:medium), style: 'height:750px;;width:auto;'%>
-                </div>
-                <%@product.pictures.each do |pic|%>
-                  <div class="item">
-                      <%=image_tag pic.image.url(:medium), style: 'height:750px;;width:auto;'%>
-                  </div>
-                <%end%>
+              <div class="item active">
+                <%=image_tag @product.pictures.first.image.url(:medium), style: 'height:400px;;width:745px;'%>
+
+              </div>
+              <%@product.pictures.each do |pic|%>
+              <div class="item">
+                <%=image_tag pic.image.url(:medium), style: 'height:400px;;width:745px;'%>
+
+              </div>
+              <%end%>
 
             </div>
 
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-header" role="button" data-slide="next">
-                <%=image_tag("left.png")%>
-            </a>
-            <a class="right carousel-control" href="#carousel-header" role="button" data-slide="next">
-                <%=image_tag("right.png")%>
-            </a>
-        </div>
+
+          </div>
+
       </div>
-      <div class="row">
-        Ürün resimleri küçük şekilde burda
+      <div class="row" role="listbox">
+
       </div>
     </div>
     <div class="col-xs-4">
