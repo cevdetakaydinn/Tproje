@@ -32,6 +32,13 @@
         <td><%= @product.price %></td>
       </tr>
       <tr>
+        <td><b>Urun Özellikler:</b></td>
+        <td><% @product.tags.each do |pt| %>
+          <%=pt.name%>
+          <%end%>
+        </td>
+      </tr>
+      <tr>
         <td><b>Urun İndirim:</b></td>
         <td>
           <%if @product.discount.blank?%>

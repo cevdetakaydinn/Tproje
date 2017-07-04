@@ -1,0 +1,5 @@
+<div class='nested-fields' style="border-style: double;">
+    <%= f.association :tag, collection: Tag.order(:name), prompt: 'Olan Bir Özellik Ekle', label: false%>
+    <%= link_to_add_association 'Yada Yeni Özellik Ekle', f, :tag , class:"btn btn-success"%>
+    <%= link_to_remove_association 'Özelliği Sil', f, class:"btn btn-danger" %>
+</div>

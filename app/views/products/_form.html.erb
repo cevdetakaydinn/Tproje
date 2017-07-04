@@ -18,6 +18,17 @@
       <%= f.input :price,label:"Fiyat" %>
       <%= f.input :icon, as: :file ,label:"Kapak Resmi"%>
     </div>
+    <div class="jumbotron col-xs-6">
+      <h3>Özellikler</h3>
+      <div id='product_tags'>
+        <%= f.simple_fields_for :product_tags do |product_tag| %>
+          <%= render 'product_tag_fields', :f => product_tag %>
+        <% end %>
+        <div class='links'>
+          <%= link_to_add_association 'Özellik Ekle', f, :product_tags , class:"btn btn-success"%>
+        </div>
+      </div>
+    </div>
 </div>
 <div class="row">
   <div class="jumbotron col-xs-6">
@@ -31,6 +42,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 

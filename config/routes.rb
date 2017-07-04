@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+
   scope '/:locale', locale: /#{I18n.available_locales.join('|')}/ do
     resources :discounts
     resources :brands
     devise_for :users
-    resources :extra_specs
     resources :pictures
+    resources :tags
     resources :products
     resources :subcategories
     resources :categories

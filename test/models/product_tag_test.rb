@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExtraSpecTest < ActiveSupport::TestCase
+class ProductTagTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

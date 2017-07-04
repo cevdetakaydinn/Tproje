@@ -39,10 +39,51 @@
       </div>
     </div>
     <div class="col-xs-4">
-      Ürün Bilgileri Burada
-      <%=@product.name%>
-      <%=@product.brand.name%>
-      <%=@product.subcategory.name%>
+      <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Urun Adı:</b></td>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <td><b>Urun Kategori:</b></td>
+          <td><%= @product.subcategory.category.name %></td>
+        </tr>
+        <tr>
+          <td><b>Urun Alt Kategori:</b></td>
+          <td><%= @product.subcategory.name %></td>
+        </tr>
+        <tr>
+          <td><b>Urun Marka:</b></td>
+          <td><%= @product.brand.name %></td>
+        </tr>
+        <tr>
+          <td><b>Urun Fiyat:</b></td>
+          <td><%= @product.price %></td>
+        </tr>
+        <tr>
+          <td><b>Urun Özellikler:</b></td>
+          <td><% @product.tags.each do |pt| %>
+            <%=pt.name%>
+            <%end%>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Urun İndirim:</b></td>
+          <td>
+            <%if @product.discount.blank?%>
+            <%else%>
+            <%= @product.discount.amount %>
+            <%end%></td>
+        </tr>
+      </tbody>
+    </table>
     </div>
   </div>
 </div>

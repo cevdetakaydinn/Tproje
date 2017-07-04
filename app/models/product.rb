@@ -5,5 +5,9 @@ class Product < ApplicationRecord
 	has_many :pictures, inverse_of: :product, dependent: :destroy
   belongs_to :discount, optional: true
 	belongs_to :brand
+  has_many :product_tags, inverse_of: :product
+  has_many :tags, :through => :product_tags, :class_name => 'Tag'
+  accepts_nested_attributes_for :tags
+  accepts_nested_attributes_for :product_tags, :allow_destroy => true
   accepts_nested_attributes_for :pictures, reject_if: :all_blank, allow_destroy: true
 end

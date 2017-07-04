@@ -19,7 +19,9 @@
         <div class="carousel-inner">
 
             <div class="item active">
+              <%unless Picture.first.blank?%>
                 <%=image_tag Picture.first.image.url(:medium)%>
+              <%end%>
             </div>
             <%Picture.all.each do |pic|%>
               <div class="item">

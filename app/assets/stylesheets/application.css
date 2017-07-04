@@ -41,8 +41,9 @@
   background-color: #ec343c !important;
   color: white !important;
 }
+
 #myCarousel .carousel-indicators {
-    bottom: 0;
+    bottom: -35px;
     left: 0;
     margin-left: 5px;
     width: 100%;
