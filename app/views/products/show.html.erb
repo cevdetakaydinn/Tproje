@@ -32,6 +32,10 @@
         <td><%= @product.price %></td>
       </tr>
       <tr>
+        <td><b>Urun Açıklama:</b></td>
+        <td><%= @product.extra %></td>
+      </tr>
+      <tr>
         <td><b>Urun Özellikler:</b></td>
         <td><% @product.tags.each do |pt| %>
           <%=pt.name%>

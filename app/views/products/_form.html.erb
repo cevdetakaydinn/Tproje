@@ -16,6 +16,7 @@
       </br>
       <%= f.select :discount_id, Discount.all.map { |l| [l.amount, l.id, { class: l.id }] }, include_blank: true%>
       <%= f.input :price,label:"Fiyat" %>
+      <%= f.input :extra,label:"Açıklama" %>
       <%= f.input :icon, as: :file ,label:"Kapak Resmi"%>
     </div>
     <div class="jumbotron col-xs-6">
@@ -23,7 +24,9 @@
       <div id='product_tags'>
         <%= f.simple_fields_for :product_tags do |product_tag| %>
           <%= render 'product_tag_fields', :f => product_tag %>
+          </br>
         <% end %>
+
         <div class='links'>
           <%= link_to_add_association 'Özellik Ekle', f, :product_tags , class:"btn btn-success"%>
         </div>

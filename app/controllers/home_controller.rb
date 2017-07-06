@@ -18,6 +18,11 @@ class HomeController < ApplicationController
 	end
 
 	def product
-		@product = Product.find(params[:product])
+		if params[:product].blank?
+			redirect_to root_path
+		else
+			@product = Product.find(params[:product])
+		end
+
 	end
 end

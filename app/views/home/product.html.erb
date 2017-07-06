@@ -3,35 +3,35 @@
     <div class="col-xs-8">
       <div class="row">
 
-          <div id="myCarousel" class="carousel slide">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li class="item1 active"><%=image_tag @product.pictures.first.image.url(:medium), style: 'height:150px;;width:300px;'%></li>
-              <%count=2%>
-              <%@product.pictures.each do |pic|%>
-              <li class="item<%=count%>"><%=image_tag pic.image.url(:medium), style: 'height:150px;;width:300px;'%></li>
-              <%count=1+count%>
-              <%end%>
-            </ol>
+        <div id="myCarousel" class="carousel slide">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li class="item1 active"><%=image_tag @product.pictures.first.image.url(:medium), style: 'height:150px;;width:300px;'%></li>
+            <%count=2%>
+            <%@product.pictures.each do |pic|%>
+            <li class="item<%=count%>"><%=image_tag pic.image.url(:medium), style: 'height:150px;;width:300px;'%></li>
+            <%count=1+count%>
+            <%end%>
+          </ol>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
 
-              <div class="item active">
-                <%=image_tag @product.pictures.first.image.url(:medium), style: 'height:400px;;width:745px;'%>
-
-              </div>
-              <%@product.pictures.each do |pic|%>
-              <div class="item">
-                <%=image_tag pic.image.url(:medium), style: 'height:400px;;width:745px;'%>
-
-              </div>
-              <%end%>
+            <div class="item active">
+              <%=image_tag @product.pictures.first.image.url(:medium), style: 'height:400px;;width:745px;'%>
 
             </div>
+            <%@product.pictures.each do |pic|%>
+            <div class="item">
+              <%=image_tag pic.image.url(:medium), style: 'height:400px;;width:745px;'%>
 
+            </div>
+            <%end%>
 
           </div>
+
+
+        </div>
 
       </div>
       <div class="row" role="listbox">
@@ -39,51 +39,47 @@
       </div>
     </div>
     <div class="col-xs-4">
-      <table class="table">
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><b>Urun Adı:</b></td>
-          <td><%= @product.name %></td>
-        </tr>
-        <tr>
-          <td><b>Urun Kategori:</b></td>
-          <td><%= @product.subcategory.category.name %></td>
-        </tr>
-        <tr>
-          <td><b>Urun Alt Kategori:</b></td>
-          <td><%= @product.subcategory.name %></td>
-        </tr>
-        <tr>
-          <td><b>Urun Marka:</b></td>
-          <td><%= @product.brand.name %></td>
-        </tr>
-        <tr>
-          <td><b>Urun Fiyat:</b></td>
-          <td><%= @product.price %></td>
-        </tr>
-        <tr>
-          <td><b>Urun Özellikler:</b></td>
-          <td><% @product.tags.each do |pt| %>
-            <%=pt.name%>
-            <%end%>
-          </td>
-        </tr>
-        <tr>
-          <td><b>Urun İndirim:</b></td>
-          <td>
-            <%if @product.discount.blank?%>
-            <%else%>
-            <%= @product.discount.amount %>
-            <%end%></td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-  </div>
+      <h2><%= @product.name %></h2>
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b><%=t('Urun Çeşit')%>:</b></td>
+            <td><%= @product.subcategory.name %></td>
+          </tr>
+          <tr>
+            <td><b><%=t('Urun Marka')%>:</b></td>
+            <td><%= @product.brand.name %></td>
+          </tr>
+          <tr>
+            <td><b><%=t('Urun Özellik')%>:</b></td>
+            <td><% @product.tags.each do |pt| %>
+              <%=pt.name%>
+            </br>
+              <%end%>
+            </td>
+          </tr>
+          <tr>
+
+              <%if @product.discount.blank?%>
+              <%else%>
+                     <td><b><%=t('Urun İndirim')%>:</b></td>
+                          <td>
+              <%= @product.discount.amount %>
+              <%end%></td>
+            </tr>
+          </tbody>
+        </table>
+        <h4><%=t('Urun Açıklama')%>:</h4>
+        <%=@product.extra%>
+      </div>
+
+</div>
+</br>
+</br>
 </div>
