@@ -55,6 +55,7 @@
                 <%end%>
               </div>
             </section>
+          <center><%= will_paginate @products, :previous_label => '<-Geri', :next_label => 'İleri->', renderer: BootstrapPagination::Rails %></center>  
           </div><!--/container-->
 
         </div><!-- /.content-block content-blog-gray -->

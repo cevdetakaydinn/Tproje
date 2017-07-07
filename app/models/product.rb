@@ -10,4 +10,5 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :tags
   accepts_nested_attributes_for :product_tags, :allow_destroy => true
   accepts_nested_attributes_for :pictures, reject_if: :all_blank, allow_destroy: true
+  self.per_page = 10
 end

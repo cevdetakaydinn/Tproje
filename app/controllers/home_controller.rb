@@ -11,6 +11,7 @@ class HomeController < ApplicationController
 		elsif params[:brand]
 			@products = Product.where(brand_id: params[:brand])
 		end
+		@products= @products.paginate(:page => params[:page])
 
 	end
 
